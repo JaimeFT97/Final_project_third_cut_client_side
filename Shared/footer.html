@@ -1,0 +1,272 @@
+</div>
+<div class="col-2 columna"></div>
+</div>
+<footer class="border-top footer text-muted">
+<div class="container">
+    &copy; 2020 - FinalProjectThirdCut
+</div>
+</footer>
+<script src="../Shared/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<script src="../Shared/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../Shared/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../Shared/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javaScript">
+    function createAlbum() {
+        
+        const form = document.getElementById('album-form');
+
+        const AlbumObj = {
+            album_name: form.Album_name.value,
+            album_cover: form.Album_cover.value,
+            song_quantity: parseInt(form.Song_quantity.value),
+            duration: form.Duration.value,
+            link_album: form.Link_album.value,
+            artist_id: parseInt(form.Artist_id.value)
+            
+        };
+        axios.post("https://localhost:44349/api/Album", AlbumObj)
+        .then((NewAlbum)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The Album has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (NewAlbum=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    function createArtist() {
+    
+        const form = document.getElementById('artist-form');
+
+        const artistObj = {
+            artistic_name: form.Artistic_name.value,
+            real_name: form.Real_name.value,
+            country_id: parseInt(form.Country_id.value),
+            average_salary: parseInt(form.Average_salary.value),
+            occupation: form.Occupation.value
+        };
+        axios.post("https://localhost:44349/api/Artist", artistObj)
+        .then((newArtist)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The artist has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (newArtist=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    
+    function createCountry() {
+    
+        const form = document.getElementById('country-form');
+
+        const countryObj = {
+            country_name: form.Country_name.value
+        };
+        axios.post("https://localhost:44349/api/Country", countryObj)
+        .then((newCountry)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The country has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (newCountry=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    function createGender() {
+    
+        const form = document.getElementById('gender-form');
+    
+        const genderObj = {
+            gender_name: form.Gender_name.value
+        };
+        axios.post("https://localhost:44349/api/Gender", genderObj)
+        .then((newGender)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The gender has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (newGender=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+    
+    }
+    function createLanguage() {
+    
+        const form = document.getElementById('language-form');
+
+        const languageObj = {
+            language_name: form.Language_name.value
+        };
+        axios.post("https://localhost:44349/api/Language", languageObj)
+        .then((newLanguage)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The language has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (newLanguage=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    function createSong() {
+        
+        const form = document.getElementById('song-form');
+
+        const SongObj = {
+            song_name: form.Song_name.value,
+            duration: form.Duration.value,
+            gender_id: parseInt(form.Gender_id.value),
+            language_id: parseInt(form.Language_id.value),
+            country_id: parseInt(form.Country_id.value),
+            link_song: form.Link_song.value,
+            Album_id: parseInt(form.Album_id.value),
+            Artist_id: parseInt(form.Artist_id.value)
+            
+        };
+        axios.post("https://localhost:44349/api/Song", SongObj)
+        .then((NewSong)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The Song has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (NewSong=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    function createStaff() {
+    
+        const form = document.getElementById('staff-form');
+
+        const staffObj = {
+            name: form.Name.value,
+            age: parseInt(form.Age.value),
+            gender: form.Gender.value,
+            role: form.Role.value
+        };
+        axios.post("https://localhost:44349/api/Staff", staffObj)
+        .then((newStaff)=>{
+            var s = '<div class="alert alert-success alert-dismissible fade show" role="alert">The staff has been created succesfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+            if (newStaff=>id>0) {
+                $("#alerta").html(s);  
+            }
+        })
+        .catch((err) => { console.log({err}); });
+
+    }
+    
+    //Get Country
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Country",  
+        data: "{}",  
+        success: function (data) {  
+            var s = '<option value="">Please Select a Country</option>';  
+            for (var i = 0; i < data.length; i++) {  
+                s += '<option value="' + data[i].id + '">' + data[i].country_name + '</option>';  
+            }  
+            $("#GetCountry").html(s);  
+        }  
+    });
+    //Get Artist
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Artist",  
+        data: "{}",  
+        success: function (data) {  
+            var s = '<option value="">Please Select a Artist</option>';  
+            for (var i = 0; i < data.length; i++) {  
+                s += '<option value="' + data[i].id + '">' + data[i].artistic_name + '</option>';  
+            }  
+            $("#GetArtist").html(s);  
+        }  
+    });
+    //Get Album
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Album",  
+        data: "{}",  
+        success: function (data) {  
+            var s = '<option value="">Please Select a Album</option>';  
+            for (var i = 0; i < data.length; i++) {  
+                s += '<option value="' + data[i].id + '">' + data[i].album_name + '</option>';  
+            }  
+            $("#GetAlbum").html(s);  
+        }  
+    });
+    //Get Language
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Language",  
+        data: "{}",  
+        success: function (data) {  
+            var s = '<option value="">Please Select a Language</option>';  
+            for (var i = 0; i < data.length; i++) {  
+                s += '<option value="' + data[i].id + '">' + data[i].language_name + '</option>';  
+            }  
+            $("#GetLanguage").html(s);  
+        }  
+    });
+    //Get Gender
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Gender",  
+        data: "{}",  
+        success: function (data) {  
+            var s = '<option value="">Please Select a Gender</option>';  
+            for (var i = 0; i < data.length; i++) {  
+                s += '<option value="' + data[i].id + '">' + data[i].gender_name + '</option>';  
+            }  
+            $("#GetGender").html(s);  
+        }  
+    });
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Staff",  
+        data: "{}",  
+        success: function (data) {  
+            
+            var s;
+            for (var i = 0; i < data.length; i++) {  
+                s += '<tr><td>' + data[i].id + '</td><td class="text-capitalize">' + data[i].name + '</td><td class="text-capitalize">' + data[i].age + '</td><td class="text-capitalize">' + data[i].gender + '</td><td class="text-capitalize">' + data[i].role + '</td></tr>'; 
+            }
+            $("#cargando").css("display", "inline");
+            setTimeout(function(){
+                $("#mybody").html(s);  
+                $("#MyTable").DataTable();
+                $("#cargando").css("display", "none");
+                $("#MyTable").css("display", "table");
+            }, 4000);     
+        }
+    });
+    $.ajax({  
+        type: "GET",  
+        url: "https://localhost:44349/api/Artist",  
+        data: "{}",  
+        success: function (data) {  
+            var EPS=0.125;
+            var Retirement=0.16;
+            var ARL=0.0696;
+            var TA=0;
+            var e;
+            var s;
+            for (var i = 0; i < data.length; i++) { 
+                if (data[i].average_salary<750) {
+                    TA=25;
+                }
+                e=Math.round(data[i].average_salary*EPS);
+                r=Math.round(data[i].average_salary*Retirement);
+                a=Math.round(data[i].average_salary*ARL);
+                m=Math.round((data[i].average_salary-e-r-a)+TA);
+                y=Math.round(m*12);
+                s += '<tr><td class="text-capitalize">' 
+                + data[i].artistic_name + '</td><td>$ ' + data[i].average_salary + 
+                ' USD</td><td>$ ' + e + ' USD</td><td>$ ' + r +' USD</td><td>$ ' + a +' USD</td><td>$ ' + TA +
+                ' USD</td><td>$ ' + m +' USD</td><td>$ ' + y +
+                ' USD</td></tr>'; 
+            }
+            $("#calculate").html(s);      
+        }
+    });
+</script>
+</body>
+</html>
